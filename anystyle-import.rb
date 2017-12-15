@@ -18,7 +18,9 @@ if search.strip[0..2] == "doi"
   growl "Failure", "DOI lookup not successful" unless bibtex
 else
   require 'anystyle/parser'
+  Anystyle.dictionary.options[:mode] = :kyoto
   search.gsub!(/\n/,' ')
   bibtex = Anystyle.parse(search, :bibtex).to_s
+  puts bibtex
 end
-pbcopy (bibtex)
+pbcopy(bibtex)

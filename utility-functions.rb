@@ -2,15 +2,14 @@
 
 # writes text to clipboard, using a pipe to avoid shell mangling
 # rewritten using osascript for better UTF8 support (from http://www.coderaptors.com/?action=browse&diff=1&id=Random_tips_for_Mac_OS_X)
-require 'clippy'
+require 'clipboard'
 def pbcopy(text)
-  Clippy.copy(text)
+  Clipboard.copy(text)
 end
 
 # gets text from clipboard
 def pbpaste
-  return Clippy.paste
-  #IO.popen("osascript -e 'the clipboard as unicode text' | tr '\r' '\n'", 'r+').read.strip
+  Clipboard.paste
 end
 
 # shows notification on screen. one or two arguments, if one, just shows a message, if two, the first is the title

@@ -15,7 +15,7 @@ end
 search = pbpaste
 if search.strip[0..2] == "doi"
   bibtex = lookup_doi(search)
-  growl "Failure", "DOI lookup not successful" unless bibtex
+  # growl "Failure", "DOI lookup not successful" unless bibtex
 else
   require 'anystyle/parser'
   Anystyle.dictionary.options[:mode] = :kyoto
